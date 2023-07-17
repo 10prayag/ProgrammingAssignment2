@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+        
+   
+    <div class="container">
+       
+    </div>
+         <script >
+//            
+
+let usUrl = 'https://api.github.com/users/hiteshchoudhary';
+const xml = new XMLHttpRequest();
+xml.open('GET', usUrl);
+xml.addEventListener('load', function () {
+  // if (xml.readyState == 4 && xml.status == 200) {
+    const product = JSON.parse(xml.responseText);
+    let dataStore = `
+      <div class="card">
+        <img src="sir.png" alt="img" />
+        <p><strong>name-:</strong>${product.name}</p>
+        <p><strong>follwers-:</strong>${product.followers}</p>
+        <p><strong>id-:</strong>${product.id}</p>
+        <p><strong>location-:</strong>${product.location}</p>
+      </div>
+    `;
+    let container = document.querySelector('.container');
+    container.innerHTML = dataStore;
+    console.log(container.innerHTML);
+   
+  });
+// });
+xml.send();
+
+     
+
+
+
+
+         </script>
+</body>
+</html>
